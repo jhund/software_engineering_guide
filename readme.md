@@ -29,7 +29,7 @@ Workflow
 
 The commands below will generate the rocco html output for the ruby styleguides.
 
-    cd into software_engineering_guide
+    cd into software_engineering_guide/guides
     rocco *.rb
 
 The Markdown formatted style guides don't require pre-processing. I rely on Github's Markdown
