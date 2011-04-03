@@ -84,6 +84,29 @@
         <div class="octowrap">
           <a class="octothorpe" href="#section-5">#</a>
         </div>
+        <p> <strong>ActiveRecord callbacks</strong>: They add important behavior to our model.</p>
+
+<p> It&rsquo;s also important to specify callbacks before associations in order for inheritance to work
+ for the callback queues. Otherwise, you might trigger the loading of a child before the parent
+ has registered the callbacks and they won’t be inherited. (From Rails' ActiveRecord::Callbacks
+ documentation)</p>
+
+<ul>
+<li>Sort the callbacks as required by model logic and add a comment indicating why a callback&rsquo;s
+position is important.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>  <span class="n">before_create</span> <span class="ss">:set_start_date</span> <span class="c1"># no dependencies, do this first</span>
+  <span class="n">before_save</span> <span class="ss">:update_duration</span> <span class="c1"># after set_start_date so we can use start date for calculation</span>
+  </pre></div>
+      </td>
+    </tr>
+    <tr id='section-6'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-6">#</a>
+        </div>
         <p> <strong>ActiveRecord associations</strong>: They tell us how this model interacts with other models.</p>
 
 <ul>
@@ -93,24 +116,26 @@ finding them.</li>
 <li>Prefer has_many :through over has_and_belongs_to_many</li>
 <li>Always spell out the :dependent option explicitly where it applies to prove that you have
 thought about it.</li>
+<li>Always specify the :inverse_of option on associations.
+Helps eliminating some strange bugs when traversing the object graph in-memory and making changes.
+Except on :as, :through and :polymorphic associations. Doesn&rsquo;t work on those.</li>
 </ul>
       </td>
       <td class=code>
-        <div class='highlight'><pre>  <span class="n">belongs_to</span> <span class="ss">:client</span>
-  <span class="n">has_many</span> <span class="ss">:collaborators</span><span class="p">,</span> <span class="ss">:dependent</span> <span class="o">=&gt;</span> <span class="ss">:nullify</span>
-  <span class="n">has_many</span> <span class="ss">:todos</span><span class="p">,</span> <span class="ss">:order</span> <span class="o">=&gt;</span> <span class="s2">&quot;position ASC&quot;</span><span class="p">,</span> <span class="ss">:dependent</span> <span class="o">=&gt;</span> <span class="ss">:destroy</span>
+        <div class='highlight'><pre>  <span class="n">belongs_to</span> <span class="ss">:client</span><span class="p">,</span> <span class="ss">:inverse_of</span> <span class="o">=&gt;</span> <span class="ss">:projects</span>
+  <span class="n">has_many</span> <span class="ss">:collaborators</span><span class="p">,</span> <span class="ss">:dependent</span> <span class="o">=&gt;</span> <span class="ss">:nullify</span><span class="p">,</span> <span class="ss">:inverse_of</span> <span class="o">=&gt;</span> <span class="ss">:project</span>
+  <span class="n">has_many</span> <span class="ss">:todos</span><span class="p">,</span> <span class="ss">:order</span> <span class="o">=&gt;</span> <span class="s2">&quot;position ASC&quot;</span><span class="p">,</span> <span class="ss">:dependent</span> <span class="o">=&gt;</span> <span class="ss">:destroy</span><span class="p">,</span> <span class="ss">:inverse_of</span> <span class="o">=&gt;</span> <span class="ss">:project</span>
   <span class="n">has_many</span> <span class="ss">:persons_responsible</span><span class="p">,</span>
     <span class="ss">:through</span> <span class="o">=&gt;</span> <span class="ss">:collaborators</span><span class="p">,</span>
     <span class="ss">:uniq</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
     <span class="ss">:source</span> <span class="o">=&gt;</span> <span class="ss">:person</span><span class="p">,</span>
-    <span class="ss">:order</span> <span class="o">=&gt;</span> <span class="s2">&quot;persons.email ASC&quot;</span>
-    </pre></div>
+    <span class="ss">:order</span> <span class="o">=&gt;</span> <span class="s2">&quot;persons.email ASC&quot;</span></pre></div>
       </td>
     </tr>
-    <tr id='section-6'>
+    <tr id='section-7'>
       <td class=docs>
         <div class="octowrap">
-          <a class="octothorpe" href="#section-6">#</a>
+          <a class="octothorpe" href="#section-7">#</a>
         </div>
         <p> <strong>Validations</strong></p>
       </td>
@@ -119,10 +144,10 @@ thought about it.</li>
   </pre></div>
       </td>
     </tr>
-    <tr id='section-7'>
+    <tr id='section-8'>
       <td class=docs>
         <div class="octowrap">
-          <a class="octothorpe" href="#section-7">#</a>
+          <a class="octothorpe" href="#section-8">#</a>
         </div>
         <p> <strong>Scopes</strong> (formerly known as named_scopes)</p>
 
@@ -149,10 +174,10 @@ multi-line unambiguous for parser</li>
     </pre></div>
       </td>
     </tr>
-    <tr id='section-8'>
+    <tr id='section-9'>
       <td class=docs>
         <div class="octowrap">
-          <a class="octothorpe" href="#section-8">#</a>
+          <a class="octothorpe" href="#section-9">#</a>
         </div>
         <p> <strong>Miscellaneous Declarations</strong>:</p>
 
@@ -166,10 +191,10 @@ multi-line unambiguous for parser</li>
   <span class="n">alias_method</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span></pre></div>
       </td>
     </tr>
-    <tr id='section-9'>
+    <tr id='section-10'>
       <td class=docs>
         <div class="octowrap">
-          <a class="octothorpe" href="#section-9">#</a>
+          <a class="octothorpe" href="#section-10">#</a>
         </div>
         <p> I prefer the demeter ruby extension over Rails' delegate for delegation.</p>
       </td>
@@ -178,10 +203,10 @@ multi-line unambiguous for parser</li>
   </pre></div>
       </td>
     </tr>
-    <tr id='section-10'>
+    <tr id='section-11'>
       <td class=docs>
         <div class="octowrap">
-          <a class="octothorpe" href="#section-10">#</a>
+          <a class="octothorpe" href="#section-11">#</a>
         </div>
         <p> <strong>Class Methods</strong></p>
 
@@ -197,10 +222,10 @@ multi-line unambiguous for parser</li>
   </pre></div>
       </td>
     </tr>
-    <tr id='section-11'>
+    <tr id='section-12'>
       <td class=docs>
         <div class="octowrap">
-          <a class="octothorpe" href="#section-11">#</a>
+          <a class="octothorpe" href="#section-12">#</a>
         </div>
         <p> <strong>Instance Methods</strong></p>
       </td>
@@ -213,10 +238,10 @@ multi-line unambiguous for parser</li>
   </pre></div>
       </td>
     </tr>
-    <tr id='section-12'>
+    <tr id='section-13'>
       <td class=docs>
         <div class="octowrap">
-          <a class="octothorpe" href="#section-12">#</a>
+          <a class="octothorpe" href="#section-13">#</a>
         </div>
         <p> <strong>Permissions</strong></p>
 
@@ -237,10 +262,10 @@ multi-line unambiguous for parser</li>
   </pre></div>
       </td>
     </tr>
-    <tr id='section-13'>
+    <tr id='section-14'>
       <td class=docs>
         <div class="octowrap">
-          <a class="octothorpe" href="#section-13">#</a>
+          <a class="octothorpe" href="#section-14">#</a>
         </div>
         <p> <strong>Protected Methods</strong>: The <code>protected</code> keyword is not indented.</p>
       </td>
@@ -252,26 +277,27 @@ multi-line unambiguous for parser</li>
   </pre></div>
       </td>
     </tr>
-    <tr id='section-14'>
+    <tr id='section-15'>
       <td class=docs>
         <div class="octowrap">
-          <a class="octothorpe" href="#section-14">#</a>
+          <a class="octothorpe" href="#section-15">#</a>
         </div>
         <p> <strong>Private Methods</strong>: The <code>private</code> keyword is not indented.</p>
       </td>
       <td class=code>
         <div class='highlight'><pre><span class="kp">private</span>
 
-  <span class="k">def</span> <span class="nf">private_method</span>
+  <span class="k">def</span> <span class="nf">set_start_date</span>
+    <span class="nb">self</span><span class="o">.</span><span class="n">started_at</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">zone</span><span class="o">.</span><span class="n">now</span>
   <span class="k">end</span>
 
 <span class="k">end</span></pre></div>
       </td>
     </tr>
-    <tr id='section-15'>
+    <tr id='section-16'>
       <td class=docs>
         <div class="octowrap">
-          <a class="octothorpe" href="#section-15">#</a>
+          <a class="octothorpe" href="#section-16">#</a>
         </div>
         <p> This document was generated with <a href="http://rtomayko.github.com/rocco/">rocco.rb</a></p>
 

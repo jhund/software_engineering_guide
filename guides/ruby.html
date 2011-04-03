@@ -329,7 +329,7 @@ where you should have used <code>==</code></li>
         </div>
         <ul>
 <li>Use <code>\A and \z</code> to set boundaries on regular expressions, don&rsquo;t use <code>^ and $</code>. Az match to the
-beginning/end of the sting. ^$ match to the beginning/end of a line.</li>
+beginning/end of the string. ^$ match to the beginning/end of a line.</li>
 </ul>
       </td>
       <td class=code>
@@ -388,6 +388,14 @@ block/method parameters, according to this scheme:
 <li>When using inject with short blocks, name the arguments <code>|m, e|</code> (mnemonic: memo, each)</li>
 <li>When defining binary operators, name the argument &ldquo;other&rdquo;: <code>def +(other)</code></li>
 <li>Prefer <code>map</code> over collect, <code>find</code> over detect, <code>find_all</code> over select.</li>
+<li>use the following format for binary getters:
+
+<ul>
+<li>has_permission?</li>
+<li>is_yellow?</li>
+</ul>
+</li>
+<li>start expensive method names with &ldquo;compute_&rdquo;</li>
 </ul>
       </td>
       <td class=code>
@@ -421,6 +429,7 @@ block/method parameters, according to this scheme:
 <li>Avoid hashes-as-optional-parameters. Does the method do too much?</li>
 <li>Avoid long methods.</li>
 <li>Avoid long parameter lists.</li>
+<li>Avoid message chaining (task.project.user), use delegate/demeter instead (task.user)</li>
 <li>Use <code>def self.method</code> to define singleton/class methods.</li>
 <li>Avoid <code>alias</code> when <code>alias_method</code> will do.</li>
 <li>Write for 1.8, but avoid doing things you know that will break in 1.9.</li>
