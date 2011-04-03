@@ -17,10 +17,10 @@ Guides
 * [Email](software_engineering_guide/blob/master/guides/email.md)
 * [Git](software_engineering_guide/blob/master/guides/git.md)
 * [HTML Document Structure](software_engineering_guide/blob/master/guides/html_document_structure.md)
-* [Rails Controller](http://jhund.github.com/software_engineering_guide/rails_controller.html)
-* [Rails Model](http://jhund.github.com/software_engineering_guide/rails_model.html)
-* [Rails Module](http://jhund.github.com/software_engineering_guide/rails_module.html)
-* [Ruby](http://jhund.github.com/software_engineering_guide/ruby.html)
+* [Rails Controller](http://jhund.github.com/software_engineering_guide/guides/rails_controller.html)
+* [Rails Model](http://jhund.github.com/software_engineering_guide/guides/rails_model.html)
+* [Rails Module](http://jhund.github.com/software_engineering_guide/guides/rails_module.html)
+* [Ruby](http://jhund.github.com/software_engineering_guide/guides/ruby.html)
 * [Technical Writing in English](software_engineering_guide/blob/master/guides/technical_writing_english.md)
 
 
