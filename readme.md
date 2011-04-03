@@ -30,10 +30,13 @@ Workflow
 I use Github pages to render the rocco generated HTML files. The commands below will generate the
 html output and push the pages to Github:
 
-    cd into software_engineering_guide, master branch
-    
+    cd into software_engineering_guide/guides
+
+    git checkout master
     rocco *.rb
-    git commit "recompiled rocco html files"
+    cd ..
+    git add *
+    git commit -m "recompiled rocco html files"
     git checkout gh-pages
     git merge master
     git checkout master
@@ -43,8 +46,6 @@ The Markdown formatted style guides don't require pre-processing. I rely on Gith
 renderer.
 
 Javascript and CSS files are rendered by Github as well.
-
-
 
 Credits
 -------
