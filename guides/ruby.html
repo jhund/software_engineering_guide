@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>ruby.rb</title>
+  <link rel="stylesheet" href="http://jashkenas.github.com/docco/resources/docco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div id="jump_to">
+    Jump To &hellip;
+    <div id="jump_wrapper">
+      <div id="jump_page">
+        <a class="source" href="rails_controller.html">rails_controller.rb</a>
+        <a class="source" href="rails_model.html">rails_model.rb</a>
+        <a class="source" href="rails_module.html">rails_module.rb</a>
+        <a class="source" href="ruby.html">ruby.rb</a>
+        </div>
+    </div>
+  </div>
+  <table cellspacing=0 cellpadding=0>
+  <thead>
+    <tr>
+      <th class=docs><h1>ruby.rb</h1></th>
+      <th class=code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr id='section-1'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-1">#</a>
+        </div>
+        <p> This style guide applies to a <strong>Ruby Code in General</strong>. It is part of Jo Hund&rsquo;s
+ <a href="http://github.com/jhund/styleguide">Style Guide collection</a>.</p>
+
+<h2>Formatting</h2>
+
+<ul>
+<li>Encode in UTF-8.</li>
+<li>End lines Unix-style (LF).</li>
+<li>No line longer than 100 characters. Makes it possible to read code e.g. in version control
+diffs and ack search results.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre></pre></div>
+      </td>
+    </tr>
+    <tr id='section-2'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-2">#</a>
+        </div>
+        <ul>
+<li>Indent with 2 spaces. No tabs, ever. They make reading diffs hard.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="k">def</span> <span class="nf">a_method</span>
+  <span class="n">method_body</span>
+<span class="k">end</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-3'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-3">#</a>
+        </div>
+        <ul>
+<li>Avoid indentation other than at the beginning of a line. It might look pretty at first sight,
+however it creates more work because a change to one line might affect all other lines. It
+makes it harder to spot the actual change in version control diffs.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="k">def</span> <span class="nf">do_this</span>
+  <span class="p">{</span>
+    <span class="ss">:a</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="ss">:very_long_hash_key</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="ss">:medium</span> <span class="o">=&gt;</span> <span class="mi">3</span>
+  <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">dont_do_this</span>
+  <span class="p">{</span>
+    <span class="ss">:a</span>                  <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="ss">:very_long_hash_key</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="ss">:medium</span>             <span class="o">=&gt;</span> <span class="mi">3</span>
+  <span class="p">}</span>
+<span class="k">end</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-4'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-4">#</a>
+        </div>
+        <ul>
+<li>Put spaces around operators, after commas, colons and semicolons, around { and before }.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+<span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">:a</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">:b</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">:c</span> <span class="o">=&gt;</span> <span class="mi">3</span> <span class="p">}</span>
+<span class="s2">&quot;</span><span class="si">#{</span> <span class="n">interpolated_strings</span> <span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">lambda</span> <span class="p">{</span> <span class="o">|</span><span class="n">args</span><span class="o">|</span> <span class="n">also_for_blocks</span> <span class="p">}</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-5'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-5">#</a>
+        </div>
+        <ul>
+<li>No spaces after (, [ and before ], ).</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="nb">method</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">hash</span><span class="o">[</span><span class="n">key</span><span class="o">]</span>
+<span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-6'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-6">#</a>
+        </div>
+        <ul>
+<li>Put two spaces before statement modifiers (postfix <code>if/unless/while/until/rescue</code>).</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="s2">&quot;true&quot;</span>  <span class="k">if</span> <span class="kp">true</span>
+<span class="s2">&quot;true&quot;</span>  <span class="k">unless</span> <span class="kp">false</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-7'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-7">#</a>
+        </div>
+        <ul>
+<li>Indent <code>when</code> as deep as <code>case</code>.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="k">case</span> <span class="n">arg</span>
+<span class="k">when</span> <span class="mi">1</span>
+  <span class="n">do_1</span>
+<span class="k">when</span> <span class="mi">2</span>
+  <span class="n">do_2</span>
+<span class="k">end</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-8'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-8">#</a>
+        </div>
+        <ul>
+<li>Use YARD and its conventions for API documentation.  Don&rsquo;t put an empty line between
+the comment block and the def. <a href="http://yardoc.org/">YARD info</a>.</li>
+<li>Use empty lines to break up a long method into logical paragraphs.</li>
+<li>No trailing whitespace.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre></pre></div>
+      </td>
+    </tr>
+    <tr id='section-9'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-9">#</a>
+        </div>
+        <h2>Syntax</h2>
+
+<ul>
+<li>Use <code>def</code> with parentheses when there are arguments.</li>
+<li>Never use <code>for</code>, unless you exactly know why.</li>
+<li>Never use <code>then</code>.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre></pre></div>
+      </td>
+    </tr>
+    <tr id='section-10'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-10">#</a>
+        </div>
+        <ul>
+<li>Use <code>when x; ...</code> for one-line cases. (Ruby 1.9 compatible)</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="k">case</span> <span class="n">a</span><span class="p">;</span> <span class="k">when</span> <span class="nb">String</span><span class="p">;</span> <span class="n">a</span><span class="p">;</span> <span class="k">when</span> <span class="nb">Integer</span><span class="p">;</span> <span class="n">a</span><span class="o">.</span><span class="n">to_s</span><span class="p">;</span> <span class="k">end</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-11'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-11">#</a>
+        </div>
+        <ul>
+<li>Use <code>&amp;&amp;/||</code> for boolean expressions, <code>and/or</code> for control flow.  (Rule
+  of thumb: If you have to use outer parentheses, you are using the
+  wrong operators.)</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="nb">p</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">find_by_id</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="ow">or</span> <span class="k">raise</span> <span class="s2">&quot;Could not find person&quot;</span>
+<span class="nb">p</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">find_by_id</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="o">||</span> <span class="no">Person</span><span class="o">.</span><span class="n">new</span>
+<span class="nb">p</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">find_by_id</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">p</span><span class="o">.</span><span class="n">update_last_seen_at</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-12'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-12">#</a>
+        </div>
+        <ul>
+<li>Avoid multiline <code>?:</code>, use <code>if</code>.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre></pre></div>
+      </td>
+    </tr>
+    <tr id='section-13'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-13">#</a>
+        </div>
+        <ul>
+<li>Use parentheses liberally. Omit them only in the simplest cases.
+They are helpful in breaking long lines and keeping row length under
+100 characters. Makes your ruby look a bit more like C.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="n">x</span> <span class="o">=</span> <span class="no">Math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">array</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-14'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-14">#</a>
+        </div>
+        <ul>
+<li>Prefer <code>{...}</code> over <code>do...end</code>. Multiline <code>{...}</code> is fine: having different statement endings (
+<code>}</code> for blocks, <code>end</code> for if/while/&hellip;) makes it easier to see what ends where. But use
+<code>do...end</code> for &ldquo;control flow&rdquo; and &ldquo;method definitions&rdquo; (e.g. in Rakefiles and certain DSLs.)
+Avoid <code>do...end</code> when chaining.</li>
+<li>Avoid <code>return</code> where not required.</li>
+<li>Avoid line continuation (<code>\</code>) where not required.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre></pre></div>
+      </td>
+    </tr>
+    <tr id='section-15'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-15">#</a>
+        </div>
+        <ul>
+<li>Using the return value of <code>=</code> is okay. Put parentheses around it to indicate that this is
+intentional.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="k">if</span> <span class="p">(</span><span class="n">v</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">grep</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">))</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+  </pre></div>
+      </td>
+    </tr>
+    <tr id='section-16'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-16">#</a>
+        </div>
+        <ul>
+<li>when comparing two values, put the constant first. This will raise an error if you use <code>=</code>
+where you should have used <code>==</code></li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="k">if</span> <span class="s2">&quot;start&quot;</span> <span class="o">==</span> <span class="n">state</span>
+  </pre></div>
+      </td>
+    </tr>
+    <tr id='section-17'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-17">#</a>
+        </div>
+        <ul>
+<li>Use <code>||=</code> freely.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre></pre></div>
+      </td>
+    </tr>
+    <tr id='section-18'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-18">#</a>
+        </div>
+        <ul>
+<li>Use <code>w%[...]</code> notation for arrays that contain single word strings</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="sx">%w[project todo collaborator]</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">e</span> <span class="p">}</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-19'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-19">#</a>
+        </div>
+        <ul>
+<li>Use <code>\A and \z</code> to set boundaries on regular expressions, don&rsquo;t use <code>^ and $</code>. Az match to the
+beginning/end of the string. ^$ match to the beginning/end of a line.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre></pre></div>
+      </td>
+    </tr>
+    <tr id='section-20'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-20">#</a>
+        </div>
+        <h2>Naming</h2>
+
+<ul>
+<li>Use <code>snake_case</code> for methods.</li>
+<li>Use <code>CamelCase</code> for classes and modules.  (Keep acronyms like HTTP, RFC, XML uppercase.)</li>
+<li>Use <code>SCREAMING_SNAKE_CASE</code> for other constants.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre></pre></div>
+      </td>
+    </tr>
+    <tr id='section-21'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-21">#</a>
+        </div>
+        <ul>
+<li>The length of an identifier determines its scope.  Use one-letter variables for short
+block/method parameters, according to this scheme:
+
+<ul>
+<li>e: elements of an Enumerable: ary.each { |e| puts e }</li>
+<li>ex: rescued exceptions: rescue</li>
+<li>f: files and file names</li>
+<li>i,j: indexes</li>
+<li>k: the key part of a hash entry</li>
+<li>v: any value</li>
+<li>v: the value part of a hash entry</li>
+</ul>
+</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre></pre></div>
+      </td>
+    </tr>
+    <tr id='section-22'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-22">#</a>
+        </div>
+        <ul>
+<li>Use names prefixed with _ for unused variables: <code>def mock(_dummy)</code></li>
+<li>When using inject with short blocks, name the arguments <code>|m, e|</code> (mnemonic: memo, each)</li>
+<li>When defining binary operators, name the argument &ldquo;other&rdquo;: <code>def +(other)</code></li>
+<li>Prefer <code>map</code> over collect, <code>find</code> over detect, <code>find_all</code> over select.</li>
+<li>use the following format for binary getters:
+
+<ul>
+<li>has_permission?</li>
+<li>is_yellow?</li>
+</ul>
+</li>
+<li>start expensive method names with &ldquo;compute_&rdquo;</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre></pre></div>
+      </td>
+    </tr>
+    <tr id='section-23'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-23">#</a>
+        </div>
+        <h2>Comments</h2>
+
+<ul>
+<li>Comments longer than a word are capitalized and use punctuation.</li>
+<li>Avoid superfluous comments.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre></pre></div>
+      </td>
+    </tr>
+    <tr id='section-24'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-24">#</a>
+        </div>
+        <h2>The rest</h2>
+
+<ul>
+<li>Avoid hashes-as-optional-parameters. Does the method do too much?</li>
+<li>Avoid long methods.</li>
+<li>Avoid long parameter lists.</li>
+<li>Avoid message chaining (task.project.user), use delegate/demeter instead (task.user)</li>
+<li>Use <code>def self.method</code> to define singleton/class methods.</li>
+<li>Avoid <code>alias</code> when <code>alias_method</code> will do.</li>
+<li>Write for 1.8, but avoid doing things you know that will break in 1.9.</li>
+<li>Avoid needless metaprogramming.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre></pre></div>
+      </td>
+    </tr>
+    <tr id='section-25'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-25">#</a>
+        </div>
+        <h2>General</h2>
+
+<ul>
+<li>Code in a functional way, avoid mutation when it makes sense.</li>
+<li>Do not mess around in core classes when writing libraries.</li>
+<li><a href="http://www.erlang.se/doc/programming_rules.shtml#HDR11">Do not program defensively.</a>
+
+<blockquote><p>One should not test input data to functions for correctness. Most of the code in the system
+should be written with the assumption that the input data to the function in question is
+correct. Only check data when it &ldquo;enters&rdquo; the system for the first time.</p></blockquote></li>
+<li>Keep the code simple.</li>
+<li>Don&rsquo;t generalize prematurely. Build 2 specific solutions before you build a general solution.</li>
+<li>Design breadth first. Don&rsquo;t jump on the first implementation idea that pops up in your mind.
+Make an effort to come up with 2 alternative approaches. This doesn&rsquo;t have to take long.</li>
+<li>Don&rsquo;t optimize prematurely. Optimize when you have no other choice.</li>
+<li>Be consistent.</li>
+</ul>
+
+
+      </td>
+      <td class=code>
+        <div class='highlight'><pre></pre></div>
+      </td>
+    </tr>
+    </table>
+</div>
+</body>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>rails_model.rb</title>
+  <link rel="stylesheet" href="http://jashkenas.github.com/docco/resources/docco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div id="jump_to">
+    Jump To &hellip;
+    <div id="jump_wrapper">
+      <div id="jump_page">
+        <a class="source" href="rails_controller.html">rails_controller.rb</a>
+        <a class="source" href="rails_model.html">rails_model.rb</a>
+        <a class="source" href="rails_module.html">rails_module.rb</a>
+        <a class="source" href="ruby.html">ruby.rb</a>
+        </div>
+    </div>
+  </div>
+  <table cellspacing=0 cellpadding=0>
+  <thead>
+    <tr>
+      <th class=docs><h1>rails_model.rb</h1></th>
+      <th class=code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr id='section-1'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-1">#</a>
+        </div>
+        <p> This style guide applies to a <strong>Ruby on Rails ActiveRecord Model</strong> class. It is part of Jo Hund&rsquo;s
+ <a href="http://github.com/jhund/styleguide">Style Guide collection</a>.</p>
+
+<p> This convention puts the most important information about a model at the top.</p>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre></pre></div>
+      </td>
+    </tr>
+    <tr id='section-2'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-2">#</a>
+        </div>
+        
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="k">class</span> <span class="nc">Project</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  </pre></div>
+      </td>
+    </tr>
+    <tr id='section-3'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-3">#</a>
+        </div>
+        <p> <strong>Include other modules</strong>: They add new behavior to the model. We want to know about
+ this right away.</p>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>  <span class="kp">include</span> <span class="no">Canable</span><span class="o">::</span><span class="no">Permissions</span>
+  </pre></div>
+      </td>
+    </tr>
+    <tr id='section-4'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-4">#</a>
+        </div>
+        <p> <strong>Rails macros</strong>: They, too add implicit behavior to our model.</p>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>  <span class="n">acts_as_list</span>
+  <span class="n">default_scope</span> <span class="n">order</span><span class="p">(</span><span class="s2">&quot;name ASC&quot;</span><span class="p">)</span>
+    </pre></div>
+      </td>
+    </tr>
+    <tr id='section-5'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-5">#</a>
+        </div>
+        <p> <strong>ActiveRecord callbacks</strong>: They add important behavior to our model.</p>
+
+<p> It&rsquo;s also important to specify callbacks before associations in order for inheritance to work
+ for the callback queues. Otherwise, you might trigger the loading of a child before the parent
+ has registered the callbacks and they won’t be inherited. (From Rails' ActiveRecord::Callbacks
+ documentation)</p>
+
+<ul>
+<li>Sort the callbacks as required by model logic and add a comment indicating why a callback&rsquo;s
+position is important.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>  <span class="n">before_create</span> <span class="ss">:set_start_date</span> <span class="c1"># no dependencies, do this first</span>
+  <span class="n">before_save</span> <span class="ss">:update_duration</span> <span class="c1"># after set_start_date so we can use start date for calculation</span>
+  </pre></div>
+      </td>
+    </tr>
+    <tr id='section-6'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-6">#</a>
+        </div>
+        <p> <strong>ActiveRecord associations</strong>: They tell us how this model interacts with other models.</p>
+
+<ul>
+<li>Sort the associations alphabetically, including the macro. Helps with detecting duplicates and
+finding them.</li>
+<li>Never go over 100 characters per line.</li>
+<li>Prefer has_many :through over has_and_belongs_to_many</li>
+<li>Always spell out the :dependent option explicitly where it applies to prove that you have
+thought about it.</li>
+<li>Always specify the :inverse_of option on associations.
+Helps eliminating some strange bugs when traversing the object graph in-memory and making changes.
+Except on :as, :through and :polymorphic associations. Doesn&rsquo;t work on those.</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>  <span class="n">belongs_to</span> <span class="ss">:client</span><span class="p">,</span> <span class="ss">:inverse_of</span> <span class="o">=&gt;</span> <span class="ss">:projects</span>
+  <span class="n">has_many</span> <span class="ss">:collaborators</span><span class="p">,</span> <span class="ss">:dependent</span> <span class="o">=&gt;</span> <span class="ss">:nullify</span><span class="p">,</span> <span class="ss">:inverse_of</span> <span class="o">=&gt;</span> <span class="ss">:project</span>
+  <span class="n">has_many</span> <span class="ss">:todos</span><span class="p">,</span> <span class="ss">:order</span> <span class="o">=&gt;</span> <span class="s2">&quot;position ASC&quot;</span><span class="p">,</span> <span class="ss">:dependent</span> <span class="o">=&gt;</span> <span class="ss">:destroy</span><span class="p">,</span> <span class="ss">:inverse_of</span> <span class="o">=&gt;</span> <span class="ss">:project</span>
+  <span class="n">has_many</span> <span class="ss">:persons_responsible</span><span class="p">,</span>
+    <span class="ss">:through</span> <span class="o">=&gt;</span> <span class="ss">:collaborators</span><span class="p">,</span>
+    <span class="ss">:uniq</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
+    <span class="ss">:source</span> <span class="o">=&gt;</span> <span class="ss">:person</span><span class="p">,</span>
+    <span class="ss">:order</span> <span class="o">=&gt;</span> <span class="s2">&quot;persons.email ASC&quot;</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-7'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-7">#</a>
+        </div>
+        <p> <strong>Validations</strong></p>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>  <span class="n">validates_presence_of</span> <span class="ss">:name</span>
+  </pre></div>
+      </td>
+    </tr>
+    <tr id='section-8'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-8">#</a>
+        </div>
+        <p> <strong>Scopes</strong> (formerly known as named_scopes)</p>
+
+<ul>
+<li>Sort scopes alphabetically</li>
+<li>Never go over 100 characters per line.</li>
+<li>For complex scopes, put each element on a new line, put . on previous line to make
+multi-line unambiguous for parser</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>  <span class="n">scope</span> <span class="ss">:active</span><span class="p">,</span> <span class="n">where</span><span class="p">(</span><span class="ss">:state</span> <span class="o">=&gt;</span> <span class="s2">&quot;active&quot;</span><span class="p">)</span>
+  <span class="n">scope</span> <span class="ss">:sorted_by</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="o">|</span><span class="n">sort_key</span><span class="o">|</span>
+    <span class="k">case</span> <span class="n">sort_key</span>
+    <span class="k">when</span> <span class="s2">&quot;date_asc&quot;</span><span class="p">;</span> <span class="s2">&quot;projects.created_at ASC&quot;</span>
+    <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+    <span class="k">end</span>
+  <span class="p">}</span>
+  <span class="n">scope</span> <span class="ss">:complicated</span><span class="p">,</span>
+    <span class="n">where</span><span class="p">(</span><span class="s2">&quot;other_table.some_value = ?&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span><span class="o">.</span>
+    <span class="n">order</span><span class="p">(</span><span class="s2">&quot;position ASC&quot;</span><span class="p">)</span><span class="o">.</span>
+    <span class="n">joins</span><span class="p">(</span><span class="s2">&quot;other_table&quot;</span><span class="p">)</span><span class="o">.</span>
+    <span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    </pre></div>
+      </td>
+    </tr>
+    <tr id='section-9'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-9">#</a>
+        </div>
+        <p> <strong>Miscellaneous Declarations</strong>:</p>
+
+<ul>
+<li>state_machine</li>
+<li>delegation</li>
+</ul>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>  <span class="n">attr_protected</span> <span class="ss">:client_id</span>
+  <span class="n">alias_method</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-10'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-10">#</a>
+        </div>
+        <p> I prefer the demeter ruby extension over Rails' delegate for delegation.</p>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>  <span class="n">demeter</span> <span class="ss">:client_name</span><span class="p">,</span> <span class="ss">:to</span> <span class="o">=&gt;</span> <span class="ss">:client</span><span class="p">,</span> <span class="ss">:using</span> <span class="o">=&gt;</span> <span class="ss">:name</span>
+  </pre></div>
+      </td>
+    </tr>
+    <tr id='section-11'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-11">#</a>
+        </div>
+        <p> <strong>Class Methods</strong></p>
+
+<p> I prefer the <code>def self.method_name</code> form. Shows the class context when looking at the method in isolation
+ (e.g. as part of search results or symbol search in editor)</p>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">class_method_1</span>
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">class_method_2</span>
+  <span class="k">end</span>
+  </pre></div>
+      </td>
+    </tr>
+    <tr id='section-12'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-12">#</a>
+        </div>
+        <p> <strong>Instance Methods</strong></p>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>  <span class="k">def</span> <span class="nf">instance_method_1</span><span class="p">(</span><span class="n">arg1</span><span class="p">)</span>
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">instance_method_2</span><span class="p">(</span><span class="n">arg1</span><span class="p">)</span>
+  <span class="k">end</span>
+  </pre></div>
+      </td>
+    </tr>
+    <tr id='section-13'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-13">#</a>
+        </div>
+        <p> <strong>Permissions</strong></p>
+
+<p> Permissions are all grouped together (both class and instance methods)</p>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">listable_by?</span><span class="p">(</span><span class="n">actor</span><span class="p">)</span>
+    <span class="n">actor</span><span class="o">.</span><span class="n">is_admin?</span>
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">updatable_by?</span><span class="p">(</span><span class="n">actor</span><span class="p">)</span>
+    <span class="n">owned_by?</span><span class="p">(</span><span class="n">actor</span><span class="p">)</span>
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">owned_by?</span><span class="p">(</span><span class="n">actor</span><span class="p">)</span>
+    <span class="n">actor</span> <span class="o">==</span> <span class="n">person</span>
+  <span class="k">end</span>
+  </pre></div>
+      </td>
+    </tr>
+    <tr id='section-14'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-14">#</a>
+        </div>
+        <p> <strong>Protected Methods</strong>: The <code>protected</code> keyword is not indented.</p>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="kp">protected</span>
+
+  <span class="k">def</span> <span class="nf">protected_method</span>
+  <span class="k">end</span>
+  </pre></div>
+      </td>
+    </tr>
+    <tr id='section-15'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-15">#</a>
+        </div>
+        <p> <strong>Private Methods</strong>: The <code>private</code> keyword is not indented.</p>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">set_start_date</span>
+    <span class="nb">self</span><span class="o">.</span><span class="n">started_at</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">zone</span><span class="o">.</span><span class="n">now</span>
+  <span class="k">end</span>
+
+<span class="k">end</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-16'>
+      <td class=docs>
+        <div class="octowrap">
+          <a class="octothorpe" href="#section-16">#</a>
+        </div>
+        <p> This document was generated with <a href="http://rtomayko.github.com/rocco/">rocco.rb</a></p>
+
+<p> &copy; Jo Hund</p>
+
+      </td>
+      <td class=code>
+        <div class='highlight'><pre></pre></div>
+      </td>
+    </tr>
+    </table>
+</div>
+</body>
