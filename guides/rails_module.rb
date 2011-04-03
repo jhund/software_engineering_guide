@@ -1,5 +1,5 @@
-# This style guide applies to a **Ruby on Rails Module**. It is part of Jo Hund's
-# [Style Guide collection](http://github.com/jhund/styleguide).
+# This guide applies to a **Ruby on Rails Module**. It is part of Jo Hund's
+# [Software Engineering Guide](http://github.com/jhund/software_engineering_guide).
 
 #
 # Store modules in `/app/concerns/`

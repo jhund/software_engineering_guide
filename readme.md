@@ -17,20 +17,27 @@ Guides
 * [Email](software_engineering_guide/blob/master/guides/email.md)
 * [Git](software_engineering_guide/blob/master/guides/git.md)
 * [HTML Document Structure](software_engineering_guide/blob/master/guides/html_document_structure.md)
-* [Rails Controller](http://downloads.clearcove.ca/software_engineering_guide/rails_controller.html) (External HTML file)
-* [Rails Model](http://downloads.clearcove.ca/software_engineering_guide/rails_model.html) (External HTML file)
-* [Rails Module](http://downloads.clearcove.ca/software_engineering_guide/rails_module.html) (External HTML file)
-* [Ruby](http://downloads.clearcove.ca/software_engineering_guide/ruby.html) (External HTML file)
+* [Rails Controller](http://jhund.github.com/software_engineering_guide/rails_controller.html)
+* [Rails Model](http://jhund.github.com/software_engineering_guide/rails_model.html)
+* [Rails Module](http://jhund.github.com/software_engineering_guide/rails_module.html)
+* [Ruby](http://jhund.github.com/software_engineering_guide/ruby.html)
 * [Technical Writing in English](software_engineering_guide/blob/master/guides/technical_writing_english.md)
 
 
 Workflow
 --------
 
-The commands below will generate the rocco html output for the ruby styleguides.
+I use Github pages to render the rocco generated HTML files. The commands below will generate the
+html output and push the pages to Github:
 
-    cd into software_engineering_guide/guides
+    cd into software_engineering_guide, master branch
+    
     rocco *.rb
+    git commit "recompiled rocco html files"
+    git checkout gh-pages
+    git merge master
+    git checkout master
+    git push
 
 The Markdown formatted style guides don't require pre-processing. I rely on Github's Markdown
 renderer.

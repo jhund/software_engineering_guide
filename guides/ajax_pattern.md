@@ -1,8 +1,8 @@
-Jo Hund's Style Guide for AJAX Patterns
-=======================================
+Jo Hund's Guide for AJAX Patterns
+=================================
 
-This style guide applies to **AJAX Patterns**. It is part of Jo Hund's
-[Style Guide collection](http://github.com/jhund/styleguide).
+This guide applies to **AJAX Patterns**. It is part of Jo Hund's
+[Software Engineering Guide](http://github.com/jhund/software_engineering_guide).
 
 Areas to cover:
 

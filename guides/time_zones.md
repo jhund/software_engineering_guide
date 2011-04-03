@@ -1,8 +1,8 @@
-Jo Hund's Style Guide for Timezones in Rails
-============================================
+Jo Hund's Guide for Timezones in Rails
+======================================
 
-This style guide applies to **handling time zones**. It is part of Jo Hund's
-[Style Guide collection](http://github.com/jhund/styleguide).
+This guide applies to **handling time zones**. It is part of Jo Hund's
+[Software Engineering Guide](http://github.com/jhund/software_engineering_guide).
 
 
 Rules for dealing with time zones:
