@@ -27,15 +27,16 @@ Guides
 Workflow
 --------
 
-We use Github pages to render the rocco generated HTML files. The commands below will generate the
+I use Github pages to render the rocco generated HTML files. The commands below will generate the
 html output and push the pages to Github:
 
-    cd into software_engineering_guide
-    git checkout master
+    cd into software_engineering_guide, master branch
+    
     rocco *.rb
     git commit "recompiled rocco html files"
     git checkout gh-pages
     git merge master
+    git checkout master
     git push
 
 The Markdown formatted style guides don't require pre-processing. I rely on Github's Markdown

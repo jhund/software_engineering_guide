@@ -2,7 +2,7 @@ Jo Hund's Style Guide for Technical Writing in English
 ======================================================
 
 This style guide applies to **Technical Writing**. It is part of Jo Hund's
-[Style Guide collection](http://github.com/jhund/styleguide).
+[Software Engineering Guide](http://github.com/jhund/software_engineering_guide).
 
 
 
@@ -60,7 +60,7 @@ Examples for lists are:
 * Invoices (sorted by invoice number)
 
 Whenever you add a date stamp to something (e.g. like in rails migrations), use the following format:
-YYYY-MM-DD, example: 2010-07-30 or without the dash: 20100730
+YYYY-MM-DD, example: 2010-07-30, or without the dash: 20100730
 
 The first one is easier to parse by humans (and SQL databases), the second one is shorter. Both
 work fine as long as you keep the format consistent within each list.

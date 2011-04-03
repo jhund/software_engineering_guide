@@ -1,11 +1,11 @@
-Jo Hund's Style Guide for HTML Document Structure
-=================================================
+Jo Hund's Guide for HTML Document Structure
+===========================================
 
-This style guide applies to **HTML Document Structure**. It is part of Jo Hund's
-[Style Guide collection](http://github.com/jhund/styleguide).
+This guide applies to **HTML Document Structure**. It is part of Jo Hund's
+[Software Engineering Guide](http://github.com/jhund/software_engineering_guide).
 
 
-This style guide is heavily inspired by OOCSS.
+This guide is heavily inspired by OOCSS.
 
 Basic principles:
 
