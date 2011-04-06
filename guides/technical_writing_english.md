@@ -23,6 +23,24 @@ your contact information for readers who require further detail.
 [William A. Wood, September 8, 2005](http://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001yB)
 
 
+Writing Clear, Concise Sentences
+----
+
+Follow the principles below to write sentences that are clear, to the point, and easier to read.
+
+* Use the active voice
+* Put the action in the verb
+* Put wordy phrases on a diet
+* Reduce wordy verbs
+* Reduce prepositional phrases
+* Reduce expletive constructions
+* Avoid using vague nouns
+* Avoid unneccessarily inflated words
+* Avoid noun strings
+
+More detail on each bullet: [Clear, Concise, Sentences](http://writing.wisc.edu/Handbook/ClearConciseSentences.html)
+
+From the same source: [Transitional Words and Phrases](http://writing.wisc.edu/Handbook/Transitions.html)
 
 Rules
 -----
