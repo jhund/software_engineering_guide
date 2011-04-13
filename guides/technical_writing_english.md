@@ -23,6 +23,60 @@ your contact information for readers who require further detail.
 [William A. Wood, September 8, 2005](http://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001yB)
 
 
+Apply 8-sequence structure of screenplays to technical communications
+---------------------------------------------------------------------
+
+In screenwriting, the 3 acts are broken down even further into 8 sequences, with 2 sequences in the
+the first act, 4 in the second act, and the final 2 in the third act. They are:
+
+**First Act**
+
+1. show the protagonist in his natural environment
+2. introduction of the central conflict and the point of attack
+
+**Second Act**
+
+3. rising action and elaboration of the conflict
+4. false hope as it appears that the conflict will be resolved
+5. hope is revealed to be false, falling into the point of greatest despair
+6. protagonist takes control of his fate and works towards resolution
+
+**Third Act**
+
+7. central conflict is resolved in dramatic climax; false ending
+8. true ending, or denouement
+
+(the next time you watch a film, pay attention and see if you can spot these sequences - they are in
+almost all films)
+
+**Applying this to your communications**
+
+In films this structure is used to draw the viewer in and engage their interest; at work it can be
+useful as a method of describing a problem and proposing a particular solution. For example, it can
+be used to concisely describe things in just 8 sentences:
+
+1. "As you know, we have arrangement A of nature B."
+2. "Recently, we've found that event E has occurred and disrupted nature B."
+3. "Further, this means that arrangement A is now wholly untenable."
+4. "At first, we assumed it would be a simple matter of using Easy Fix F to restore arrangement A."
+5. "Unfortunately, we failed to anticipate complication C, which prevented us from doing so and made
+   the problem worse."
+6. "Therefore, we have decided to resort to More Difficult Fix M in the hopes of improving the
+   situation."
+7. "Having prepared More Difficult Fix M for execution, we have found that it is indeed working and
+   arrangement A+ has been achieved, which is for now an adequate state."
+8. "Additionally, we have found A+ to possess additional nature N+, which we did not anticipate and
+   has yielded Bonus Consequence Q."
+
+It turns out that this 8-sequence structure is extremely useful in narrating anything in a way that
+maximizes the other person's emotional connection with the subject. This makes it a great structure
+to follow for expository writing because readers engage with it in the way that people engage with
+the narrative of a story. Additionally, if you are operating under a conciseness requirement but
+want to make sure you aren't too abrupt, this gives you a good maps of what major points you need to
+hit at a minimum.
+
+Slightly modified from [Things I Learned From My Wife's Screenwriting Education, Part I](http://algeri-wong.com/yishan/things-i-learned-from-my-wifes-screenwriting-education-part-i.html)
+
 
 Rules
 -----
