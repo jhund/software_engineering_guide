@@ -48,6 +48,8 @@ All containers have double wrapped divs. The outer div is structure, the inner d
 * All visual styles are applied to the inner div (border, padding, margin, background).
 * The outer div can have margin to manage layout and interaction with other containers
 
+Below is a sample module markup:
+
     <div class="mod">
       <div class="inner">
         <div class="hd">head</div>
