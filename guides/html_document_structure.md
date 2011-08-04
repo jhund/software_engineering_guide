@@ -52,9 +52,9 @@ Below is a sample module markup:
 
     <div class="mod">
       <div class="inner">
-        <div class="hd">head</div>
-        <div class="bd">body</div>
-        <div class="ft">foot</div>
+        <div class="head">head</div>
+        <div class="body">body</div>
+        <div class="foot">foot</div>
       </div>
     </div>
 
