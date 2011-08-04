@@ -23,8 +23,28 @@ your contact information for readers who require further detail.
 [William A. Wood, September 8, 2005](http://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001yB)
 
 
+Writing Clear, Concise Sentences
+----
+
+
 Apply 8-sequence structure of screenplays to technical communications
 ---------------------------------------------------------------------
+
+Follow the principles below to write sentences that are clear, to the point, and easier to read.
+
+* Use the active voice
+* Put the action in the verb
+* Put wordy phrases on a diet
+* Reduce wordy verbs
+* Reduce prepositional phrases
+* Reduce expletive constructions
+* Avoid using vague nouns
+* Avoid unneccessarily inflated words
+* Avoid noun strings
+
+More detail on each bullet: [Clear, Concise, Sentences](http://writing.wisc.edu/Handbook/ClearConciseSentences.html)
+
+From the same source: [Transitional Words and Phrases](http://writing.wisc.edu/Handbook/Transitions.html)
 
 In screenwriting, the 3 acts are broken down even further into 8 sequences, with 2 sequences in the
 the first act, 4 in the second act, and the final 2 in the third act. They are:
