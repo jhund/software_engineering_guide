@@ -15,8 +15,8 @@ Guides
 ------
 
 * [Email](guides/email.md)
-* [Git](software_engineering_guide/blob/master/guides/git.md)
-* [Technical Writing in English](software_engineering_guide/blob/master/guides/technical_writing_english.md)
+* [Git](guides/git.md)
+* [Technical Writing in English](guides/technical_writing_english.md)
 
 
 Workflow
