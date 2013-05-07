@@ -16,11 +16,6 @@ Guides
 
 * [Email](software_engineering_guide/blob/master/guides/email.md)
 * [Git](software_engineering_guide/blob/master/guides/git.md)
-* [HTML Document Structure](software_engineering_guide/blob/master/guides/html_document_structure.md)
-* [Rails Controller](http://jhund.github.com/software_engineering_guide/guides/rails_controller.html)
-* [Rails Model](http://jhund.github.com/software_engineering_guide/guides/rails_model.html)
-* [Rails Module](http://jhund.github.com/software_engineering_guide/guides/rails_module.html)
-* [Ruby](http://jhund.github.com/software_engineering_guide/guides/ruby.html)
 * [Technical Writing in English](software_engineering_guide/blob/master/guides/technical_writing_english.md)
 
 
@@ -50,7 +45,5 @@ Javascript and CSS files are rendered by Github as well.
 Credits
 -------
 
-* Ruby style guide started as a fork of Christian Neukirchen's Ruby Style guide. It has since
-  evolved into a larger body of content.
 * [Rocco](http://rtomayko.github.com/rocco/) is a Ruby port of Docco, the quick-and-dirty,
   hundred-line-long, literate-programming-style documentation generator.

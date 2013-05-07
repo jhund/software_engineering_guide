@@ -4,7 +4,7 @@ Jo Hund's Style Guide for Technical Writing in English
 This style guide applies to **Technical Writing**. It is part of Jo Hund's
 [Software Engineering Guide](http://github.com/jhund/software_engineering_guide).
 
-
+TODO: add sentence structure article reference.
 
 Writing a technical report
 --------------------------
